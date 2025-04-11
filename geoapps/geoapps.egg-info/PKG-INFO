@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: geoapps
+Version: 0.1.0
+Summary: EO utilities for cloud-free mosaics
+Author-email: Jakub Sumara <jsumara@student.agh.edu.pl>
+Requires-Python: >=3.10
