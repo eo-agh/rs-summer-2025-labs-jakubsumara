@@ -1,0 +1,2149 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../labs/lab_0/">
+      
+      
+        <link rel="next" href="../../../contact/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Lecture 1 - Remote Sensing and Image Analysis in Space Tech</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-1-fundamentals-of-remote-sensing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Remote Sensing and Image Analysis in Space Tech" class="md-header__button md-logo" aria-label="Remote Sensing and Image Analysis in Space Tech" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Remote Sensing and Image Analysis in Space Tech
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/eo-agh/eo-labs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Remote Sensing and Image Analysis in Space Tech" class="md-nav__button md-logo" aria-label="Remote Sensing and Image Analysis in Space Tech" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Remote Sensing and Image Analysis in Space Tech
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/eo-agh/eo-labs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Semester projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab_0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab_1.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lectures
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lectures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lecture 1
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-topics-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Lecture Topics Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-remote-sensing-1-what-is-remote-sensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is Remote Sensing? {#1-what-is-remote-sensing} 🌍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What is Remote Sensing? {#1-what-is-remote-sensing} 🌍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-detecting-light" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Detecting Light
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-how-remote-sensing-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 How Remote Sensing Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-essential-elements-of-remote-sensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Essential Elements of Remote Sensing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-remote-sensing-platforms-2-remote-sensing-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Remote Sensing Platforms {#2-remote-sensing-platforms}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Remote Sensing Platforms {#2-remote-sensing-platforms}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-types-of-remote-sensing-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Types of Remote Sensing Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Types of Remote Sensing Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-ground-based-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. Ground-Based Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-aerial-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Aerial Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-satellite-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. Satellite Platforms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cost-vs-coverage-trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Cost vs. Coverage Trade-off
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-electromagnetic-waves-3-electromagnetic-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Electromagnetic Waves {#3-electromagnetic-waves}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Electromagnetic Waves {#3-electromagnetic-waves}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-electromagnetic-wave-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Electromagnetic Wave Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-wave-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Wave Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-energy-and-wavelength" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Energy and Wavelength
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-the-spectrum-of-electromagnetic-radiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 The Spectrum of Electromagnetic Radiation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 The Spectrum of Electromagnetic Radiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-electromagnetic-spectrum-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Electromagnetic Spectrum Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-wavelength-frequency-and-energy-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 Wavelength, Frequency, and Energy Relationship
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4.2 Wavelength, Frequency, and Energy Relationship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blackbody-radiation-and-temperature-dependence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blackbody Radiation and Temperature Dependence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-the-primary-source-of-electromagnetic-radiation-53-the-primary-source-of-electromagnetic-radiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.3 The Primary Source of Electromagnetic Radiation {#53-the-primary-source-of-electromagnetic-radiation}
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-absorption-in-the-atmosphere" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4 Absorption in the Atmosphere
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3441-atmospheric-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4.1 Atmospheric Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3442-selecting-the-right-remote-sensing-instrument" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4.2 Selecting the Right Remote Sensing Instrument
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3445-why-is-this-important-for-remote-sensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4.5 Why Is This Important for Remote Sensing?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-spectral-signatures-4-spectral-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Spectral Signatures {#4-spectral-signatures}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-what-are-spectral-signatures-41-what-are-spectral-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 What are Spectral Signatures? {#41-what-are-spectral-signatures}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 What are Spectral Signatures? {#41-what-are-spectral-signatures}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Concepts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-types-of-reflection-42-types-of-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Types of Reflection {#42-types-of-reflection}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Types of Reflection {#42-types-of-reflection}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-specular-reflection-mirror-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Specular Reflection (Mirror-like)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-diffuse-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Diffuse Reflection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mixed-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Mixed Reflection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-remote-sensing-and-spectral-signatures-43-remote-sensing-and-spectral-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Remote Sensing and Spectral Signatures {#43-remote-sensing-and-spectral-signatures}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Remote Sensing and Spectral Signatures {#43-remote-sensing-and-spectral-signatures}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vegetation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vegetation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-water" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Water
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-soil" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Soil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ice-snow" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ice &amp; Snow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atmosphere" class="md-nav__link">
+    <span class="md-ellipsis">
+      ☁️ Atmosphere
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-using-spectral-signatures-to-distinguish-materials-44-using-spectral-signatures-to-distinguish-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Using Spectral Signatures to Distinguish Materials {#44-using-spectral-signatures-to-distinguish-materials}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-how-to-measure-spectral-signature-46-how-to-measure-spectral-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 How to Measure Spectral Signature? {#46-how-to-measure-spectral-signature}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 How to Measure Spectral Signature? {#46-how-to-measure-spectral-signature}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-field-measurements-using-a-spectroradiometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5.1 Field Measurements Using a Spectroradiometer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-laboratory-measurements-using-a-hyperspectral-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5.2 Laboratory Measurements Using a Hyperspectral Camera
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-spectral-signature-measurement-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Is Spectral Signature Measurement Important?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-topics-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Lecture Topics Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-remote-sensing-1-what-is-remote-sensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is Remote Sensing? {#1-what-is-remote-sensing} 🌍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What is Remote Sensing? {#1-what-is-remote-sensing} 🌍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-detecting-light" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Detecting Light
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-how-remote-sensing-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 How Remote Sensing Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-essential-elements-of-remote-sensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Essential Elements of Remote Sensing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-remote-sensing-platforms-2-remote-sensing-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Remote Sensing Platforms {#2-remote-sensing-platforms}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Remote Sensing Platforms {#2-remote-sensing-platforms}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-types-of-remote-sensing-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Types of Remote Sensing Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Types of Remote Sensing Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-ground-based-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. Ground-Based Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-aerial-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Aerial Platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-satellite-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. Satellite Platforms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cost-vs-coverage-trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Cost vs. Coverage Trade-off
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-electromagnetic-waves-3-electromagnetic-waves" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Electromagnetic Waves {#3-electromagnetic-waves}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Electromagnetic Waves {#3-electromagnetic-waves}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-electromagnetic-wave-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Electromagnetic Wave Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-wave-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Wave Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-energy-and-wavelength" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Energy and Wavelength
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-the-spectrum-of-electromagnetic-radiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 The Spectrum of Electromagnetic Radiation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 The Spectrum of Electromagnetic Radiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-electromagnetic-spectrum-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Electromagnetic Spectrum Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-wavelength-frequency-and-energy-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 Wavelength, Frequency, and Energy Relationship
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4.2 Wavelength, Frequency, and Energy Relationship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blackbody-radiation-and-temperature-dependence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blackbody Radiation and Temperature Dependence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-the-primary-source-of-electromagnetic-radiation-53-the-primary-source-of-electromagnetic-radiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.3 The Primary Source of Electromagnetic Radiation {#53-the-primary-source-of-electromagnetic-radiation}
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-absorption-in-the-atmosphere" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4 Absorption in the Atmosphere
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3441-atmospheric-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4.1 Atmospheric Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3442-selecting-the-right-remote-sensing-instrument" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4.2 Selecting the Right Remote Sensing Instrument
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3445-why-is-this-important-for-remote-sensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4.5 Why Is This Important for Remote Sensing?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-spectral-signatures-4-spectral-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Spectral Signatures {#4-spectral-signatures}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-what-are-spectral-signatures-41-what-are-spectral-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 What are Spectral Signatures? {#41-what-are-spectral-signatures}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 What are Spectral Signatures? {#41-what-are-spectral-signatures}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Concepts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-types-of-reflection-42-types-of-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Types of Reflection {#42-types-of-reflection}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Types of Reflection {#42-types-of-reflection}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-specular-reflection-mirror-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Specular Reflection (Mirror-like)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-diffuse-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Diffuse Reflection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mixed-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Mixed Reflection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-remote-sensing-and-spectral-signatures-43-remote-sensing-and-spectral-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Remote Sensing and Spectral Signatures {#43-remote-sensing-and-spectral-signatures}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Remote Sensing and Spectral Signatures {#43-remote-sensing-and-spectral-signatures}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vegetation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vegetation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-water" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Water
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-soil" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Soil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ice-snow" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ice &amp; Snow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atmosphere" class="md-nav__link">
+    <span class="md-ellipsis">
+      ☁️ Atmosphere
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-using-spectral-signatures-to-distinguish-materials-44-using-spectral-signatures-to-distinguish-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Using Spectral Signatures to Distinguish Materials {#44-using-spectral-signatures-to-distinguish-materials}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-how-to-measure-spectral-signature-46-how-to-measure-spectral-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 How to Measure Spectral Signature? {#46-how-to-measure-spectral-signature}
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 How to Measure Spectral Signature? {#46-how-to-measure-spectral-signature}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-field-measurements-using-a-spectroradiometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5.1 Field Measurements Using a Spectroradiometer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-laboratory-measurements-using-a-hyperspectral-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5.2 Laboratory Measurements Using a Hyperspectral Camera
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-spectral-signature-measurement-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Is Spectral Signature Measurement Important?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="lecture-1-fundamentals-of-remote-sensing">🛰️ Lecture 1: Fundamentals of Remote Sensing</h1>
+<h2 id="learning-objectives">🎯 Learning Objectives</h2>
+<p>By the end of this lecture, you will understand:  </p>
+<ul>
+<li><strong><a href="#1-what-is-remote-sensing">What is Remote Sensing</a></strong> and its importance in Earth observation  </li>
+<li><strong><a href="#2-electromagnetic-radiation-emr">The role of electromagnetic radiation (EMR)</a></strong> in remote sensing  </li>
+<li><strong><a href="#3-atmospheric-effects">How the atmosphere affects remote sensing data</a></strong>  </li>
+<li><strong><a href="#4-passive-vs-active-imaging">The difference between passive and active remote sensing systems</a></strong>  </li>
+<li><strong><a href="#5-resolutions-imaging-properties">Key imaging properties</a></strong>, including spatial, spectral, radiometric, and temporal resolution  </li>
+</ul>
+<hr />
+<h2 id="lecture-topics-overview">📌 Lecture Topics Overview</h2>
+<p>1️⃣ <strong><a href="#1-what-is-remote-sensing">What is Remote Sensing?</a></strong><br />
+2️⃣ <strong><a href="#2-electromagnetic-radiation-emr">Electromagnetic Radiation (EMR)</a></strong><br />
+3️⃣ <strong><a href="#3-atmospheric-effects">Atmospheric Effects</a></strong><br />
+4️⃣ <strong><a href="#4-passive-vs-active-imaging">Passive vs. Active Imaging</a></strong><br />
+5️⃣ <strong><a href="#5-resolutions-imaging-properties">Resolutions - Imaging Properties</a></strong>  </p>
+<hr />
+<h2 id="1-what-is-remote-sensing-1-what-is-remote-sensing">1. What is Remote Sensing? {#1-what-is-remote-sensing} 🌍</h2>
+<p>Remote sensing is the <strong>process of collecting information</strong> about objects from a distance, without the need for physical contact. It is both a <strong>science and an art</strong>, as it involves obtaining and interpreting data about an object, area, or phenomenon through measurements made by instruments that are not in direct contact with the subject (Lillesand et al., 2015).  </p>
+<p><img alt="Remote Sensing Illustration" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image1.jpg" />  </p>
+<h3 id="11-detecting-light">1.1 Detecting Light</h3>
+<p>A simple example of remote sensing is <strong>human vision</strong>. Our eyes detect red, green, and blue light, and our brain processes these signals into the full range of visible colors. <strong>Artificial remote sensing systems</strong>, such as cameras, satellites, and sensors, work in a similar way—by detecting and interpreting different wavelengths of electromagnetic radiation.  </p>
+<h3 id="12-how-remote-sensing-works">1.2 How Remote Sensing Works</h3>
+<p>Remote sensing allows scientists to monitor and analyze <strong>Earth’s surface and atmosphere</strong> by measuring the <strong>reflected or emitted radiation</strong> from various objects.<br />
+Drones, airplanes, and satellites equipped with specialized sensors capture this energy and translate it into usable data.  </p>
+<p>Depending on the application, <strong>remote sensing sensors</strong> collect data across different parts of the <strong>electromagnetic spectrum</strong> and at various levels of resolution.<br />
+This helps in characterizing different land areas, water bodies, and atmospheric conditions.  </p>
+<p><img alt="Land Cover Example" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image2.png" />  </p>
+<h3 id="13-essential-elements-of-remote-sensing">1.3 Essential Elements of Remote Sensing</h3>
+<p>To perform remote sensing, three key components are required:  </p>
+<p>a. <strong>A platform</strong> – A carrier for the sensor, such as a satellite, drone, or aircraft.<br />
+b. <strong>A target</strong> – The object or area being observed (e.g., land surface, ocean, clouds).<br />
+3c. <strong>An instrument</strong> – A sensor designed to detect and capture specific types of energy.  </p>
+<p>These instruments analyze different energy sources and provide insights into <strong>environmental changes, land cover, vegetation health, and more</strong>.  </p>
+<hr />
+<h2 id="2-remote-sensing-platforms-2-remote-sensing-platforms">2. Remote Sensing Platforms {#2-remote-sensing-platforms}</h2>
+<p>Remote sensing platforms refer to the <strong>carriers</strong> that house cameras or sensors for data collection.<br />
+These platforms can be <strong>stationary</strong> (e.g., cameras on tripods) or <strong>mobile</strong> (e.g., drones, aircraft, satellites).<br />
+The choice of platform significantly affects the <strong>type, scale, and frequency</strong> of collected imagery.  </p>
+<hr />
+<h3 id="21-types-of-remote-sensing-platforms">2.1 Types of Remote Sensing Platforms</h3>
+<h4 id="a-ground-based-platforms">a. Ground-Based Platforms</h4>
+<ul>
+<li>Tripods, towers, and vehicles equipped with sensors for close-range remote sensing.  </li>
+</ul>
+<h4 id="b-aerial-platforms">b. Aerial Platforms</h4>
+<ul>
+<li>Drones, airplanes, or balloons that operate within the atmosphere, capturing medium-scale imagery.  </li>
+</ul>
+<h4 id="c-satellite-platforms">c. Satellite Platforms</h4>
+<ul>
+<li>Orbiting satellites providing large-scale, repetitive coverage of Earth's surface.  </li>
+</ul>
+<hr />
+<h3 id="22-cost-vs-coverage-trade-off">2.2 Cost vs. Coverage Trade-off</h3>
+<p>As a general rule, <strong>higher altitude platforms</strong> tend to be <strong>more expensive</strong> but <strong>cover larger areas more efficiently</strong>.  </p>
+<ul>
+<li>A <strong>handheld camera</strong> is inexpensive but impractical for imaging large areas.  </li>
+<li>A <strong>drone</strong> can capture high-resolution imagery at a regional scale.  </li>
+<li>A <strong>satellite</strong> is costly to launch and maintain but can continuously monitor vast portions of the planet.  </li>
+</ul>
+<p><strong>Resolution Considerations</strong><br />
+The <strong>farther a platform is from Earth</strong>, the lower the spatial resolution tends to be.<br />
+This means that each pixel in the image represents a larger surface area on Earth.  </p>
+<p><img alt="Platform Types" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image3.png" />  </p>
+<h2 id="3-electromagnetic-waves-3-electromagnetic-waves">3. Electromagnetic Waves {#3-electromagnetic-waves}</h2>
+<p>The application of remote sensing sensors and methods relies on the existence of <strong>electromagnetic (EM) radiation</strong>. Whether the radiation is passively measured (e.g., reflection of sunlight) or actively emitted from an instrument, <strong>remote sensing cannot function without this source of energy</strong>.  </p>
+<p>But what exactly are <strong>waves</strong>?  </p>
+<p>A <strong>wave</strong> is an undulating motion that transports <strong>energy</strong> in the direction of its propagation. A simple example of natural waves can be seen in <strong>water waves</strong> forming after a stone is thrown into a pond. Similarly, <strong>sound waves</strong> are created when we speak or when a police siren passes by.  </p>
+<h3 id="31-electromagnetic-wave-structure">3.1 Electromagnetic Wave Structure</h3>
+<p>Radiation from the Sun travels in the form of <strong>electromagnetic waves</strong>, where <strong>electric</strong> and <strong>magnetic fields</strong> are coupled together.  </p>
+<p>An <strong>electromagnetic wave</strong> consists of two perpendicular components:<br />
+- <strong>An electric field (E, blue)</strong>
+- <strong>A magnetic field (B, red)</strong>  </p>
+<p>The <strong>electric field</strong> oscillates in one plane, while the <strong>magnetic field</strong> oscillates at a right angle to it. Both fields propagate at the <strong>speed of light</strong> (~300,000 km/s).  </p>
+<p><img alt="Electromagnetic Wave Structure" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image5.gif" />  </p>
+<hr />
+<h3 id="32-wave-characteristics">3.2 Wave Characteristics</h3>
+<p>Electromagnetic waves are described by three fundamental properties:  </p>
+<p>a. <strong>Frequency (ν)</strong> – The number of wave cycles (marked by crests) that pass a point in a given time (usually per second).<br />
+b. <strong>Wavelength (λ)</strong> – The distance between two successive crests of a wave.<br />
+   - <strong>Wavelength and frequency are inversely proportional</strong>:<br />
+     - Higher frequency → <strong>shorter wavelength</strong><br />
+     - Lower frequency → <strong>longer wavelength</strong><br />
+c. <strong>Amplitude (A)</strong> – The height of the wave from its <strong>rest position</strong> to the <strong>crest</strong> (top) or <strong>trough</strong> (bottom).<br />
+   - <strong>Intensity</strong> (important in remote sensing) is proportional to the square of the amplitude.  </p>
+<p>The relationship between these properties can be expressed as:<br />
+[
+\text{frequency} = \frac{\text{speed of light}}{\text{wavelength}}
+]</p>
+<hr />
+<h3 id="33-energy-and-wavelength">3.3 Energy and Wavelength</h3>
+<p>The <strong>energy of a wave</strong> is directly related to its frequency:  </p>
+<ul>
+<li><strong>Higher frequency = more energy</strong>  </li>
+<li><strong>Lower frequency = less energy</strong>  </li>
+</ul>
+<p>Thus, <strong>waves with longer wavelengths carry less energy</strong>, while <strong>short-wavelength waves (like X-rays) carry more energy</strong>.  </p>
+<p><img alt="Electromagnetic Spectrum" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image4.png" />  </p>
+<hr />
+<h2 id="34-the-spectrum-of-electromagnetic-radiation">3.4 The Spectrum of Electromagnetic Radiation</h2>
+<p>Electromagnetic energy travels in <strong>waves</strong> and spans a <strong>broad spectrum</strong> ranging from <strong>very long radio waves</strong> to <strong>very short gamma rays</strong>. The <strong>human eye</strong> can detect only a <strong>small portion</strong> of this spectrum, known as <strong>visible light</strong>.  </p>
+<p>Other devices, such as <strong>radios</strong>, <strong>X-ray machines</strong>, and <strong>scientific instruments</strong> used in remote sensing, are capable of detecting different regions of the <strong>electromagnetic spectrum (EMS)</strong>. These instruments allow scientists to study not only <strong>Earth</strong> but also <strong>the solar system</strong> and even <strong>the universe beyond</strong>.  </p>
+<hr />
+<h3 id="341-electromagnetic-spectrum-overview">3.4.1 Electromagnetic Spectrum Overview</h3>
+<p>The figure below illustrates the <strong>different regions of the electromagnetic spectrum</strong>, including their:<br />
+- <strong>Names</strong> (radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, gamma rays)<br />
+- <strong>Wavelengths</strong> (measured in meters, micrometers, or nanometers)<br />
+- <strong>Frequencies</strong> (measured in Hertz)<br />
+- <strong>Energy levels</strong>  </p>
+<p>It also highlights the <strong>scale of objects</strong> that can interact with each wavelength and the biological or environmental <strong>influences of different EM radiation types</strong>.  </p>
+<p><img alt="EM Spectrum" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image7.jpg" />  </p>
+<hr />
+<h3 id="342-wavelength-frequency-and-energy-relationship">3.4.2 Wavelength, Frequency, and Energy Relationship</h3>
+<p>Now that we have discussed the <strong>fundamental properties of EM waves</strong>, we can explore how <strong>photons</strong> are distributed along the <strong>electromagnetic spectrum (EMS)</strong>.  </p>
+<p>We know that:<br />
+- <strong>Wavelength and frequency are inversely related</strong> (shorter wavelength = higher frequency).<br />
+- <strong>Photon energy increases as wavelength decreases</strong>.  </p>
+<h4 id="blackbody-radiation-and-temperature-dependence"><strong>Blackbody Radiation and Temperature Dependence</strong></h4>
+<p>The <strong>temperature of an object</strong> affects the <strong>wavelength of radiation it emits</strong>. The figure above also demonstrates this using a <strong>thermometer</strong>, which shows that:<br />
+- <strong>Hotter objects emit shorter wavelengths</strong> of radiation.<br />
+- <strong>Cooler objects emit longer wavelengths</strong> of radiation.  </p>
+<p>This relationship follows <strong>Planck's Law</strong>, which describes the emission of electromagnetic radiation from an idealized <strong>blackbody</strong>. A blackbody is a <strong>theoretical object</strong> that absorbs <strong>all incoming radiation</strong> and emits energy based purely on its temperature.  </p>
+<p>For example:<br />
+- The <strong>Sun (5788 K)</strong> emits most of its radiation at <strong>~0.5 × 10⁻⁶ m (500 nm, visible light)</strong>.<br />
+- The <strong>human body (~310 K)</strong> emits most of its radiation at <strong>~10⁻⁴ m (infrared range, ~10 µm)</strong>.  </p>
+<p>📌 <strong>Important Note:</strong> In reality, <strong>blackbodies do not exist</strong>—real-world objects always emit slightly less radiation than a perfect blackbody at the same temperature.  </p>
+<hr />
+<h3 id="343-the-primary-source-of-electromagnetic-radiation-53-the-primary-source-of-electromagnetic-radiation">3.4.3 The Primary Source of Electromagnetic Radiation {#53-the-primary-source-of-electromagnetic-radiation}</h3>
+<p>The primary source of energy received on Earth is electromagnetic radiation emitted from the Sun.  </p>
+<p>The Sun’s radiation is reflected and absorbed by the Earth's atmosphere and surface. Satellites carry instruments that measure the electromagnetic radiation reflected or emitted.  </p>
+<p><img alt="Prim EM Source" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image8.jpg" />  </p>
+<p>The Sun emits most of its energy at optical wavelengths, between 0.1 µm to 4 µm. Solar energy, frequently referred to as shortwave radiation, includes ultraviolet, visible, and infrared radiation. In Earth satellite remote sensing, we are mostly concerned with wavelengths from ultraviolet (0.1 µm) through the microwave (100,000 µm).  </p>
+<p><img alt="Sun Emission" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image9.jpg" />  </p>
+<hr />
+<h3 id="344-absorption-in-the-atmosphere">3.4.4 Absorption in the Atmosphere</h3>
+<p>Understanding where our atmosphere absorbs different parts of the <strong>electromagnetic radiation (EMR)</strong> is crucial for interpreting signals received by <strong>remote sensing instruments</strong>.  </p>
+<p>A key distinction between <strong>atmospheric absorption</strong> and <strong>scattering</strong> is the <strong>effective energy loss</strong> to atmospheric constituents. In absorption, energy is <strong>directly transferred</strong> into molecules in the atmosphere or to the <strong>remote sensing targets</strong>.  </p>
+<p>Certain <strong>gases in the atmosphere</strong>, such as:<br />
+- <strong>Ozone (O₃)</strong><br />
+- <strong>Carbon dioxide (CO₂)</strong><br />
+- <strong>Water vapor (H₂O)</strong>  </p>
+<p>can <strong>absorb energy</strong> and contribute to <strong>warming the planet</strong>.</p>
+<p>When electromagnetic waves interact with different materials, they exhibit <strong>predictable behaviors</strong>:  </p>
+<p>a. <strong>Reflection</strong> – The wave bounces off a surface (important for optical remote sensing).<br />
+b. <strong>Absorption</strong> – The wave's energy is absorbed by the material.<br />
+c. <strong>Scattering</strong> – The wave changes direction randomly (e.g., atmospheric scattering).<br />
+d. <strong>Transmission</strong> – The wave passes through the material without being absorbed.<br />
+e. <strong>Emission &amp; Re-emission</strong> – The material releases stored energy as electromagnetic radiation.  </p>
+<p>These behaviors are critical in <strong>remote sensing</strong>, as they determine how energy interacts with Earth's surface and atmosphere, affecting how we interpret satellite imagery.  </p>
+<p><img alt="Wave Behaviors " src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/Lecture1_image6.jpg" />  </p>
+<hr />
+<h3 id="3441-atmospheric-windows">3.4.4.1 Atmospheric Windows</h3>
+<p>From a <strong>remote sensing perspective</strong>, the goal is to use <strong>wavelengths that avoid strong absorption regions</strong> in the atmosphere.  </p>
+<p>📌 <strong>Where the atmosphere is highly transmissive to incoming wavelengths, we call these regions "atmospheric windows".</strong>  </p>
+<p>The <strong>brown curve</strong> in the diagram below represents the <strong>opaqueness</strong> of the atmosphere.  </p>
+<ul>
+<li>The <strong>big atmospheric windows between 1 mm and 1 m</strong> allow us to operate <strong>microwave remote sensing systems</strong> (e.g., radar sensors).  </li>
+<li>In contrast, <strong>atmospheric windows in the multispectral portions of the EM spectrum</strong> are much <strong>narrower</strong>.  </li>
+</ul>
+<p><img alt="Atmospheric Absorption" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image10.jpg" />  </p>
+<hr />
+<h3 id="3442-selecting-the-right-remote-sensing-instrument">3.4.4.2 Selecting the Right Remote Sensing Instrument</h3>
+<p>When designing or choosing <strong>remote sensing sensors</strong>, it is essential to carefully consider the following three questions:  </p>
+<ol>
+<li><strong>What is the spectral sensitivity of my sensor?</strong>  </li>
+<li>
+<p>Does my sensor operate in a wavelength range affected by atmospheric absorption?  </p>
+</li>
+<li>
+<p><strong>Which atmospheric windows can be used with this sensor?</strong>  </p>
+</li>
+<li>
+<p>Is my sensor designed to work in regions of high transmissivity?  </p>
+</li>
+<li>
+<p><strong>What is the source, magnitude, and composition of the outgoing signal we are aiming to analyze?</strong>  </p>
+</li>
+<li>How does the atmosphere influence the signal we receive?  </li>
+</ol>
+<p>Selecting an appropriate sensor and <strong>understanding atmospheric absorption</strong> is critical to ensuring the accuracy of <strong>Earth observation data</strong>.  </p>
+<hr />
+<h3 id="3445-why-is-this-important-for-remote-sensing">3.4.4.5 Why Is This Important for Remote Sensing?</h3>
+<p>Understanding the <strong>electromagnetic spectrum</strong> is crucial for remote sensing because:<br />
+a. Different materials interact with specific <strong>wavelengths</strong> of radiation.<br />
+b. Sensors are designed to detect radiation at different <strong>frequencies</strong> (e.g., infrared for vegetation, microwaves for weather radar).<br />
+c. The <strong>Earth's atmosphere</strong> absorbs certain wavelengths while allowing others to pass through (this is why certain satellites use infrared or microwave sensors to "see" through clouds).  </p>
+<p>This knowledge allows us to design <strong>specialized remote sensing instruments</strong> for applications such as:<br />
+🌱 <strong>Vegetation monitoring</strong> (infrared and near-infrared reflectance)<br />
+🏙️ <strong>Urban mapping</strong> (visible and shortwave infrared)<br />
+🌊 <strong>Water quality assessment</strong> (UV and visible light absorption)<br />
+🌎 <strong>Climate studies</strong> (microwave and infrared radiation)  </p>
+<hr />
+<h2 id="4-spectral-signatures-4-spectral-signatures">4. Spectral Signatures {#4-spectral-signatures}</h2>
+<h2 id="41-what-are-spectral-signatures-41-what-are-spectral-signatures">4.1 What are Spectral Signatures? {#41-what-are-spectral-signatures}</h2>
+<p>Different wavelengths of the <strong>electromagnetic spectrum</strong> interact <strong>differently</strong> with various materials on Earth's surface and in the atmosphere.  </p>
+<p>Certain <strong>materials and physical properties</strong> have a unique way of interacting with incident radiation. This interaction is called the <strong>spectral response</strong>—how the material reflects, absorbs, or emits radiation.  </p>
+<p>📌 <strong>The spectral response of an object is known as its spectral signature.</strong>  </p>
+<p>For example:<br />
+- Some materials have a <strong>higher reflectance</strong> at specific wavelengths.<br />
+- The <strong>percent reflectance</strong> is the ratio of <strong>reflected energy</strong> to the total incident energy at a given wavelength.  </p>
+<h3 id="key-concepts">Key Concepts</h3>
+<p>a. <strong>Radiance</strong>: A measure of the power of electromagnetic radiation emitted from an object per unit area for a given wavelength. In the visible spectrum, radiance is also described as the <strong>brightness</strong> of the source. It is directly proportional to <strong>amplitude</strong> (and intensity) of the wave.  </p>
+<p>Surfaces do not only reflect light; they also <strong>partially absorb it</strong>.  </p>
+<p>During <strong>absorption</strong>, energy is taken up by the molecules of a material and transformed into <strong>kinetic energy</strong>. This increased molecular movement produces <strong>heat</strong>, which is radiated back to the surroundings.  </p>
+<p><strong>Example:</strong> A <strong>black t-shirt</strong> absorbs more sunlight than a <strong>white t-shirt</strong>, which is why we feel hotter wearing black in summer.  </p>
+<p>Albedo measures the <strong>reflective properties</strong> of materials across different spectral ranges:<br />
+- <strong>Albedo = 100%</strong> → No absorption, full reflection.<br />
+- <strong>Albedo = 0%</strong> → No reflection, full absorption.  </p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Albedo (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Snow</strong></td>
+<td>80-90%</td>
+</tr>
+<tr>
+<td><strong>Cloud</strong></td>
+<td>60-90%</td>
+</tr>
+<tr>
+<td><strong>Sand</strong></td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>Meadow</strong></td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>Forest</strong></td>
+<td>5-18%</td>
+</tr>
+<tr>
+<td><strong>Concrete</strong></td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>Water (low angle)</strong></td>
+<td>22%</td>
+</tr>
+<tr>
+<td><strong>Water (high angle)</strong></td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Seasonal Albedo Changes" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image12.jpg" /></p>
+<p><strong>Surface Albedo</strong>: The fraction of incident radiation that is <strong>reflected by the Earth's surface</strong> for a given location and time.  </p>
+<video width="800" controls>
+  <source src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/videos/lecture1_video1.mp4" type="video/mp4">
+</video>
+
+<hr />
+<h2 id="42-types-of-reflection-42-types-of-reflection">4.2 Types of Reflection {#42-types-of-reflection}</h2>
+<p>The way <strong>electromagnetic waves</strong> interact with surfaces depends on their <strong>roughness</strong>. There are three main types of reflection:  </p>
+<p><img alt="Reflection examples" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image18.gif" /></p>
+<h3 id="1-specular-reflection-mirror-like">1. <strong>Specular Reflection</strong> (Mirror-like)</h3>
+<ul>
+<li>Occurs when light strikes a <strong>smooth</strong> surface.  </li>
+<li>The <strong>angle of incidence</strong> is equal to the <strong>angle of reflection</strong>.  </li>
+<li>Example: <strong>Glass, still water, metal surfaces</strong>.  </li>
+</ul>
+<h3 id="2-diffuse-reflection">2. <strong>Diffuse Reflection</strong></h3>
+<ul>
+<li>Happens on <strong>rough</strong> surfaces, scattering light in <strong>all directions</strong>.  </li>
+<li>No clear angle of reflection.  </li>
+<li>Example: <strong>Concrete, vegetation, unpolished wood</strong>.  </li>
+</ul>
+<h3 id="3-mixed-reflection">3. <strong>Mixed Reflection</strong></h3>
+<ul>
+<li>The most <strong>common</strong> type in nature.  </li>
+<li>A combination of <strong>specular and diffuse</strong> reflection.  </li>
+<li>Example: <strong>Most natural surfaces like soil, rocks, leaves</strong>.  </li>
+</ul>
+<hr />
+<h2 id="43-remote-sensing-and-spectral-signatures-43-remote-sensing-and-spectral-signatures">4.3 Remote Sensing and Spectral Signatures {#43-remote-sensing-and-spectral-signatures}</h2>
+<p><strong>Remote sensors</strong> are designed to detect <strong>wavelengths</strong> in particular parts of the <strong>electromagnetic spectrum</strong>. These instruments help <strong>identify objects or materials</strong> based on their spectral signatures.  </p>
+<p>Let's examine how different materials on Earth interact with <strong>electromagnetic radiation</strong> and define their unique spectral signatures:  </p>
+<p><img alt="Spectral Signatures Example" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image12.jpg" /></p>
+<h3 id="1-vegetation">1. Vegetation</h3>
+<ul>
+<li>Plants absorb <strong>blue and red light</strong> due to <strong>photosynthesis</strong>.  </li>
+<li><strong>Peak reflectance</strong> occurs in the <strong>green</strong> region (which is why plants appear green).  </li>
+<li><strong>Near-infrared (NIR) reflectance</strong> is much <strong>higher</strong> than in the visible spectrum.  </li>
+</ul>
+<hr />
+<h3 id="2-water">2. Water</h3>
+<ul>
+<li><strong>Clear water absorbs most radiation</strong>, appearing dark.  </li>
+<li><strong>Turbid water</strong> reflects <strong>more</strong> light.  </li>
+<li><strong>Algal blooms increase green reflectance</strong>.  </li>
+</ul>
+<hr />
+<h3 id="3-soil">3. Soil</h3>
+<ul>
+<li>Soil <strong>moisture content</strong> impacts its spectral signature.  </li>
+<li><strong>Dry soil</strong> has <strong>higher reflectance</strong> than <strong>wet soil</strong>.  </li>
+</ul>
+<hr />
+<h3 id="4-ice-snow">4. Ice &amp; Snow</h3>
+<ul>
+<li><strong>Fresh snow has high reflectance</strong> across the visible and NIR regions.  </li>
+<li><strong>Aged or dirty snow absorbs more radiation</strong>, lowering reflectance.  </li>
+</ul>
+<hr />
+<h3 id="atmosphere">☁️ Atmosphere</h3>
+<ul>
+<li>Atmospheric <strong>gases and particles</strong> scatter and absorb certain wavelengths.  </li>
+<li>Clouds reflect visible light, making them bright in satellite imagery.  </li>
+</ul>
+<p>📌 <strong>Understanding atmospheric interference is crucial</strong> for interpreting remote sensing data correctly.</p>
+<hr />
+<h2 id="44-using-spectral-signatures-to-distinguish-materials-44-using-spectral-signatures-to-distinguish-materials">4.4 Using Spectral Signatures to Distinguish Materials {#44-using-spectral-signatures-to-distinguish-materials}</h2>
+<p>Each material <strong>absorbs and reflects</strong> different <strong>wavelengths</strong> of electromagnetic radiation.  </p>
+<p>The <strong>graph below</strong> compares reflectance values across various materials:  </p>
+<p><img alt="Spectral Signatures Graph" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image13.jpg" />  </p>
+<h2 id="45-how-to-measure-spectral-signature-46-how-to-measure-spectral-signature">4.5 How to Measure Spectral Signature? {#46-how-to-measure-spectral-signature}</h2>
+<p>To analyze spectral signatures, scientists use <strong>specialized instruments</strong> that measure the <strong>reflectance, absorption, and emission</strong> properties of different materials. There are two main approaches to measuring spectral signatures:  </p>
+<hr />
+<h3 id="451-field-measurements-using-a-spectroradiometer">4.5.1 Field Measurements Using a Spectroradiometer</h3>
+<p>A <strong>spectroradiometer</strong> is an instrument used in <strong>field conditions</strong> to measure how different surfaces interact with light. These devices capture spectral signatures of vegetation, soil, water, and other materials <strong>directly in their natural environment</strong>.  </p>
+<p>📌 <strong>Example: Measuring Spectral Signatures of Vegetation</strong><br />
+- Used to analyze plant health, chlorophyll content, and stress levels.<br />
+- Helps monitor <strong>photosynthetic activity</strong> by measuring <strong>near-infrared (NIR) reflectance</strong>.<br />
+- Data is used in applications like <strong>precision agriculture, ecosystem monitoring, and climate studies</strong>.  </p>
+<p>🔍 <strong>Field Measurement Example:</strong>  </p>
+<p><img alt="Field Measurements" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image15.jpg" />  </p>
+<hr />
+<h3 id="452-laboratory-measurements-using-a-hyperspectral-camera">4.5.2 Laboratory Measurements Using a Hyperspectral Camera</h3>
+<p>In controlled laboratory environments, <strong>hyperspectral cameras</strong> capture spectral signatures with high precision. These cameras analyze <strong>light interactions</strong> across hundreds of spectral bands, allowing for highly detailed material classification.  </p>
+<p>📌 <strong>Example: Measuring Spectral Properties of Samples in a Lab</strong><br />
+- Used for <strong>soil, minerals, plant samples, and industrial materials</strong>.<br />
+- Provides <strong>high spectral resolution</strong> for material classification and chemical analysis.<br />
+- Used in <strong>geology, material science, agriculture, and environmental monitoring</strong>.  </p>
+<p>🔍 <strong>Hyperspectral Imaging Examples:</strong>  </p>
+<p><img alt="Lab Hyperspectral Camera" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image16.jpg" /><br />
+<img alt="Lab Hyperspectral Sample" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image17.jpg" /><br />
+<img alt="Hyperspectral Imaging Output" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image19.png" />  </p>
+<hr />
+<h2 id="why-is-spectral-signature-measurement-important">Why Is Spectral Signature Measurement Important?</h2>
+<ol>
+<li><strong>Distinguishing materials based on their spectral properties</strong>  </li>
+<li><strong>Identifying plant stress, soil moisture, or water quality changes</strong>  </li>
+<li><strong>Enhancing remote sensing applications in agriculture, geology, and climate science</strong>  </li>
+<li><strong>Calibrating satellite and airborne remote sensing data for improved accuracy</strong>  </li>
+</ol>
+<hr />
+<h1 id="5-passive-vs-active-imaging-5-passive-vs-active-imaging">5. Passive vs. Active Imaging {#5-passive-vs-active-imaging}</h1>
+<h2 id="51-passive-vs-active-sensors">5.1 Passive vs. Active Sensors</h2>
+<p>The way a <strong>remote sensing sensor</strong> captures energy is categorized as either <strong>passive</strong> or <strong>active</strong>.  </p>
+<p><strong>Remote sensors detect electromagnetic radiation</strong> to identify physical characteristics of an object. They either:<br />
+a. <strong>Use an external source of radiation</strong>, most often the Sun (<strong>passive sensors</strong>).<br />
+b. <strong>Transmit their own energy</strong> toward the object and measure the return (<strong>active sensors</strong>).  </p>
+<p><img alt="Passive vs Active sensors" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image22.png" />  </p>
+<p>📌 <strong>Comparison of Passive and Active Sensors:</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Sensor Type</th>
+<th>Energy Source</th>
+<th>Day/Night Operation</th>
+<th>Weather Dependency</th>
+<th>Example Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Passive</strong></td>
+<td>External (e.g., Sun)</td>
+<td>Limited at night</td>
+<td>Can be affected by clouds</td>
+<td>Optical imagery, thermal sensing, vegetation health</td>
+</tr>
+<tr>
+<td><strong>Active</strong></td>
+<td>Own energy source</td>
+<td>Works day &amp; night</td>
+<td>Can operate in all weather conditions</td>
+<td>Radar, LiDAR, altimetry</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="52-daytime-dependence-of-passive-sensors">5.2 Daytime Dependence of Passive Sensors</h2>
+<h3 id="521-the-role-of-natural-radiation">5.2.1 The Role of Natural Radiation</h3>
+<p>Passive remote sensing <strong>relies solely on naturally occurring radiation</strong>, primarily from the <strong>Sun</strong>. Unlike active sensors, passive instruments <strong>do not emit their own pulses</strong> of electromagnetic energy. This means that:<br />
+- <strong>Passive optical sensors can only acquire data during the day.</strong><br />
+- <strong>Without natural light, no radiation is reflected back to the sensor, rendering nighttime imaging impossible</strong> (except in thermal infrared).<br />
+- <strong>Atmospheric conditions</strong> (e.g., cloud cover, haze) affect the <strong>amount of sunlight reaching the Earth's surface</strong>, which in turn <strong>impacts image quality</strong>.  </p>
+<p>However, <strong>some passive sensors can operate at night</strong>—for example, thermal infrared scanners that measure the <strong>heat emitted from objects</strong> rather than reflected sunlight.  </p>
+<p>📌 <strong>Illustration: Conceptual operation of passive and active remote sensing instruments</strong>  </p>
+<p><img alt="Passive and Active Remote Sensing" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image20.gif" />  </p>
+<hr />
+<h2 id="53-active-sensors">5.3 Active Sensors</h2>
+<p>Active sensors <strong>generate and transmit their own energy</strong> toward a target, then detect the <strong>reflected or scattered return signal</strong>.  </p>
+<p>a. <strong>Advantages of Active Sensors:</strong><br />
+- Work <strong>independently of sunlight</strong> → Can operate <strong>day and night</strong>.<br />
+- Can <strong>penetrate clouds, smoke, and even vegetation canopies</strong> (especially radar-based sensors).<br />
+- Provide <strong>3D surface mapping capabilities</strong> (e.g., LiDAR, radar altimetry).  </p>
+<p>b. <strong>Examples of Active Sensors:</strong><br />
+- <strong>Radar (Synthetic Aperture Radar - SAR)</strong> – Used for Earth surface monitoring and disaster response.<br />
+- <strong>LiDAR (Light Detection and Ranging)</strong> – High-precision elevation mapping.<br />
+- <strong>Altimeters</strong> – Measure ocean height and ice sheet thickness.  </p>
+<hr />
+<h2 id="54-types-of-passive-remote-sensing-instruments">5.4 Types of Passive Remote Sensing Instruments</h2>
+<p>Most <strong>passive</strong> remote sensing sensors are classified as either <strong>multispectral (MS)</strong> or <strong>hyperspectral (HS)</strong> instruments.  </p>
+<p><img alt="Passive and Active Remote Sensing" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image21.jpg" />  </p>
+<h3 id="541-multispectral-sensors">5.4.1 Multispectral Sensors</h3>
+<p><strong>Multispectral remote sensing</strong> records data in <strong>multiple spectral bands</strong> of the electromagnetic spectrum.<br />
+- The first <strong>multispectral satellite</strong>, <strong>Landsat’s Multispectral Scanner (MSS)</strong>, was launched in <strong>1972</strong>.<br />
+- It recorded data in <strong>four spectral bands</strong> (<strong>blue, green, red, and near-infrared</strong>), which were crucial for <strong>vegetation analysis</strong>.<br />
+- Today’s advanced multispectral sensors, such as <strong>Sentinel-2</strong>, provide:<br />
+  - <strong>13 spectral bands</strong><br />
+  - <strong>High revisit times</strong><br />
+  - <strong>Spatial resolution up to 10 meters</strong>  </p>
+<p>📌 <strong>Multispectral satellites like Sentinel-2 have revolutionized global remote sensing by providing frequent and detailed observations of land surfaces.</strong>  </p>
+<hr />
+<h3 id="542-hyperspectral-sensors">5.4.2 Hyperspectral Sensors</h3>
+<p><strong>Hyperspectral sensors</strong> capture <strong>hundreds</strong> of narrow spectral bands, offering <strong>finer spectral resolution</strong> than multispectral sensors.<br />
+- Instead of just a few bands, hyperspectral sensors collect data across <strong>the entire electromagnetic spectrum</strong>, allowing for <strong>detailed material classification</strong>.<br />
+- <strong>Hyperspectral imaging is particularly useful for:</strong><br />
+  a. Identifying specific minerals, water quality, and vegetation health.<br />
+  b. Detecting chemical compositions of materials.<br />
+  c. Monitoring environmental changes with greater precision.  </p>
+<p>📌 <strong>Comparison of Multispectral vs. Hyperspectral Sensors:</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Sensor Type</th>
+<th>Number of Bands</th>
+<th>Spectral Band Width</th>
+<th>Example Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Multispectral</strong></td>
+<td>3-20</td>
+<td>50-200 nm</td>
+<td>Land cover mapping, vegetation health</td>
+</tr>
+<tr>
+<td><strong>Hyperspectral</strong></td>
+<td>100+</td>
+<td>10-20 nm</td>
+<td>Mineral identification, water quality</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Explore Interactive Spectral Visualization:</strong><br />
+For an interactive <strong>visualization of the electromagnetic spectrum</strong>, including spectral characteristics and wavelength manipulation, visit:   <a href="https://ubcemergingmedialab.github.io/geomatics-textbook/viz/emspectrum-viz/">Interactive EMSpectrum Tool</a>  </p>
+<h1 id="6-resolutions-imaging-properties-6-resolutions-imaging-properties">6. Resolutions - Imaging Properties {#6-resolutions-imaging-properties}</h1>
+<h2 id="61-introduction-to-resolutions">6.1 Introduction to Resolutions</h2>
+<p>One of the first considerations when using remotely sensed data is <strong>data quality</strong>. In scientific research, good quality data must be <strong>relevant to the scale and time period</strong> of the study. To achieve this, <strong>remote sensing sensors are designed with specific applications in mind</strong> and are characterized by <strong>four key resolutions</strong>:  </p>
+<ol>
+<li><strong><a href="#61-spatial-resolution">Spatial Resolution</a></strong> – Defines the smallest distinguishable detail in an image.  </li>
+<li><strong><a href="#62-temporal-resolution">Temporal Resolution</a></strong> – Refers to how often an area is imaged.  </li>
+<li><strong><a href="#63-spectral-resolution">Spectral Resolution</a></strong> – Determines the number and width of wavelength bands measured.  </li>
+<li><strong><a href="#64-radiometric-resolution">Radiometric Resolution</a></strong> – Defines a sensor’s ability to detect differences in energy intensity.  </li>
+</ol>
+<p>Each of these resolutions impacts the <strong>type, accuracy, and usability</strong> of remote sensing data for different applications.  </p>
+<hr />
+<h2 id="61-spatial-resolution-61-spatial-resolution">6.1 Spatial Resolution {#61-spatial-resolution}</h2>
+<p>Spatial resolution refers to the <strong>ground area represented by a single pixel</strong> in an image.<br />
+- A <strong>higher spatial resolution</strong> means <strong>finer details</strong>, as each pixel covers a smaller area on the ground.<br />
+- A <strong>lower spatial resolution</strong> means <strong>coarser details</strong>, with each pixel covering a larger area.  </p>
+<h3 id="611-pixels-and-image-formation">6.1.1 Pixels and Image Formation</h3>
+<p>When a sensor collects data, it captures information from an <strong>area of the Earth's surface</strong>.<br />
+- This area could be as small as <strong>a single tree</strong> or as large as <strong>an entire city</strong>.<br />
+- All electromagnetic radiation (EMR) collected in this area is <strong>averaged into a single pixel value</strong>.<br />
+- An <strong>image</strong> is formed when <strong>multiple pixels are collected over an area</strong>.  </p>
+<p>📌 <strong>Illustration: The concept of pixel size and spatial resolution</strong>  </p>
+<p><img alt="Spatial Resolution" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image24.jpg" />  </p>
+<h3 id="612-factors-affecting-spatial-resolution">6.1.2 Factors Affecting Spatial Resolution</h3>
+<p>Several factors influence spatial resolution:<br />
+a. <strong>Field of View (FOV)</strong> – The area observed by the sensor, determined by its <strong>viewing angle</strong> and <strong>altitude</strong>.<br />
+b. <strong>Instantaneous Field of View (IFOV)</strong> – The area observed by the sensor at the moment a pixel is recorded.<br />
+c. <strong>Altitude and Orbit</strong> – Satellites at <strong>higher altitudes</strong> have <strong>coarser resolution</strong>, while <strong>low-orbit sensors</strong> capture <strong>finer details</strong>.  </p>
+<p><img alt="FOV IFOV" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image26.jpg" />  </p>
+<h2 id="613-mixed-pixels-66-mixed-pixels">6.1.3 Mixed Pixels {#66-mixed-pixels}</h2>
+<h3 id="what-are-mixed-pixels">🔍 What Are Mixed Pixels?</h3>
+<p>A <strong>mixed pixel</strong> occurs when a single pixel contains signals from <strong>multiple surface types</strong> rather than representing a single, uniform feature.  </p>
+<p>This happens when:<br />
+- The spatial resolution of the sensor is <strong>too coarse</strong> to distinguish fine details.<br />
+- Different land cover types (e.g., vegetation, water, soil) are present <strong>within the same pixel area</strong>.<br />
+- The transition between features (e.g., urban-rural boundaries, coastlines) is gradual rather than distinct.  </p>
+<p>📌 <strong>Illustration: Mixed Pixels in Satellite Imagery</strong>  </p>
+<p><img alt="Mixed Pixels Example" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image22.jpg" />  </p>
+<hr />
+<h3 id="614-impact-of-mixed-pixels">6.1.4 Impact of Mixed Pixels</h3>
+<p>Mixed pixels can introduce <strong>errors</strong> in remote sensing analysis, as they:<br />
+a. Reduce <strong>classification accuracy</strong>, making it difficult to assign a pixel to a single land cover class.<br />
+b. Cause <strong>spectral mixing</strong>, where the recorded spectral signature is an average of multiple materials.<br />
+c. Affect <strong>change detection</strong>, making it harder to track specific land cover transitions.  </p>
+<hr />
+<h3 id="615-trade-offs-in-spatial-resolution">6.1.5 Trade-offs in Spatial Resolution</h3>
+<p>a. <strong>Higher spatial resolution</strong> provides <strong>detailed imagery</strong> but requires <strong>more storage and processing power</strong>.<br />
+b. <strong>Lower spatial resolution</strong> is <strong>easier to process</strong> but may miss <strong>small features</strong>.  </p>
+<p>When choosing a <strong>sensor for an application</strong>, scientists balance <strong>detail, processing efficiency, and study area coverage</strong>.  </p>
+<hr />
+<h2 id="62-temporal-resolution-62-temporal-resolution">6.2 Temporal Resolution {#62-temporal-resolution}</h2>
+<p>Temporal resolution refers to the <strong>time interval between successive observations of the same location</strong>.  </p>
+<ul>
+<li>It can range from <strong>hours to years</strong>, depending on the application, platform and sensor.  </li>
+<li>It is essential for <strong>monitoring changes over time</strong> (e.g., urban growth, deforestation, climate change).  </li>
+</ul>
+<p>📌 <strong>Common Temporal Resolutions in Remote Sensing:</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Temporal Resolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Weather Monitoring</strong></td>
+<td>Hourly</td>
+</tr>
+<tr>
+<td><strong>Vegetation Growth &amp; Crop Health</strong></td>
+<td>Daily – Weekly</td>
+</tr>
+<tr>
+<td><strong>Urban Expansion Studies</strong></td>
+<td>Annually</td>
+</tr>
+<tr>
+<td><strong>Climate Change Analysis</strong></td>
+<td>Decadal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="621-revisit-time">6.2.1 Revisit Time</h3>
+<p>Revisit time is the <strong>interval between consecutive observations of the same location</strong>.<br />
+- <strong>Stationary sensors</strong> (e.g., geostationary satellites) have <strong>short revisit times</strong> (seconds/minutes).<br />
+- <strong>Orbiting sensors</strong> may take <strong>days or weeks</strong> to return to the same location.  </p>
+<p><strong>Some satellites (e.g., Sentinel-2) are designed for high temporal resolution</strong>, ensuring frequent monitoring of Earth's surface.  </p>
+<hr />
+<h2 id="63-spectral-resolution-63-spectral-resolution">6.3 Spectral Resolution {#63-spectral-resolution}</h2>
+<p>Spectral resolution defines how a <strong>sensor detects electromagnetic radiation (EMR) across different wavelengths</strong>.  </p>
+<p><img alt="Spectral resolution" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image27.jpg" />  </p>
+<p>📌 <strong>Spectral resolution refers to:</strong><br />
+a. <strong>The number of spectral bands</strong> a sensor detects.<br />
+b. <strong>The location of bands along the electromagnetic spectrum</strong>.<br />
+c. <strong>The width of each spectral band</strong> (narrow vs. wide).  </p>
+<h3 id="631-spectral-bands-and-energy-sensitivity">6.3.1 Spectral Bands and Energy Sensitivity</h3>
+<p>Each sensor records <strong>specific wavelength ranges</strong>, which determine what features can be observed.<br />
+- <strong>Shorter wavelengths (e.g., blue light)</strong> have <strong>higher energy</strong> and are <strong>easier to detect</strong>.<br />
+- <strong>Longer wavelengths (e.g., thermal infrared, microwave)</strong> require <strong>larger band widths</strong> for effective observation.  </p>
+<p>📌 <strong>Example: Landsat Mission Sensors &amp; Spectral Bands</strong>  </p>
+<p>Landsat satellites have evolved to include more spectral bands:<br />
+- Landsat 1-5: <strong>Multispectral Scanner System (MSS)</strong><br />
+- Landsat 4-5: <strong>Thematic Mapper (TM)</strong><br />
+- Landsat 7: <strong>Enhanced Thematic Mapper Plus (ETM+)</strong>  </p>
+<p>📌 <strong>Illustration: Spectral bands of Landsat sensors</strong>  </p>
+<p><strong>Sensors with higher spectral resolution</strong> capture more bands and provide <strong>richer spectral data</strong> for classification.  </p>
+<hr />
+<h2 id="64-radiometric-resolution-64-radiometric-resolution">6.4 Radiometric Resolution {#64-radiometric-resolution}</h2>
+<p>Radiometric resolution determines a sensor’s <strong>ability to detect small differences in energy intensity</strong>.<br />
+- Incoming photons pass through a <strong>filter</strong>, allowing only specific wavelengths to reach the detector.<br />
+- The sensor assigns a <strong>digital number (DN)</strong> to each pixel, representing <strong>energy intensity</strong>.  </p>
+<h3 id="641-bits-and-data-storage">6.4.1 Bits and Data Storage</h3>
+<p>Radiometric resolution is measured in <strong>bits</strong>, which define the number of <strong>discernible energy levels</strong>.<br />
+- <strong>Higher bit depth</strong> = <strong>greater sensitivity to subtle differences</strong>.  </p>
+<p>📌 <strong>Common Radiometric Resolutions:</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Bit Depth</th>
+<th>Number of Discrete Levels</th>
+<th>Example Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>8-bit</strong></td>
+<td>256 levels</td>
+<td>Standard satellite imagery</td>
+</tr>
+<tr>
+<td><strong>12-bit</strong></td>
+<td>4,096 levels</td>
+<td>Advanced environmental monitoring</td>
+</tr>
+<tr>
+<td><strong>16-bit</strong></td>
+<td>65,536 levels</td>
+<td>High-precision scientific analysis</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Radiometric Resolution Example" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image28.jpg" />  </p>
+<p>The left image is 16-bit radiometric resolution (65,536 discrete shades of grey), the center image is an 8-bit radiometric resolution (256 discrete shades of grey), the right image is 4-bit radiometric resolution (16 discrete shades of grey).</p>
+<h3 id="642-visualization-of-radiometric-resolution">6.4.2 Visualization of Radiometric Resolution</h3>
+<p>📌 <strong>Illustration: Radiometric Resolution and Data Depth</strong>  </p>
+<p><img alt="Radiometric Resolution" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image26.jpg" />  </p>
+<p>a. <strong>Higher radiometric resolution</strong> allows for finer distinctions in brightness, improving image quality.<br />
+b. <strong>However, increasing resolution also increases data storage and processing requirements</strong>.  </p>
+<hr />
+<h2 id="65-summary-choosing-the-right-resolution">6.5 Summary: Choosing the Right Resolution</h2>
+<p>Each resolution influences <strong>how remote sensing data is collected, processed, and applied</strong>.  </p>
+<p>📌 <strong>Key Takeaways:</strong><br />
+- <strong>Spatial resolution</strong> affects <strong>detail level</strong> – Higher resolution means finer details but larger storage requirements.<br />
+- <strong>Temporal resolution</strong> affects <strong>frequency of observations</strong> – Important for tracking changes over time.<br />
+- <strong>Spectral resolution</strong> affects <strong>wavelength coverage</strong> – Determines how well features can be distinguished.<br />
+- <strong>Radiometric resolution</strong> affects <strong>energy detection sensitivity</strong> – Impacts image clarity and depth.  </p>
+<p><strong>Choosing the right sensor depends on the study's objectives and computational resources!</strong>  </p>
+<hr />
+<h1 id="remote-sensing-quiz">🎯 Remote Sensing Quiz</h1>
+<h2 id="identify-the-object-in-the-satellite-image">🛰️ Identify the Object in the Satellite Image</h2>
+<p>The following image is a <strong>satellite image</strong> taken from <strong>Landsat-8</strong>, orbiting <strong>700 km above the ground</strong>.  </p>
+<h3 id="can-you-identify-what-is-inside-the-red-circle">🔍 Can you identify what is inside the red circle?</h3>
+<p><img alt="Landsat-8 Satellite Image" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image25.jpg" /><br />
+<img alt="Sentinel-2" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image29.jpg" /><br />
+<img alt="Dove" src="https://raw.githubusercontent.com/eo-agh/eo-course/main/docs/assets/images/lecture1_image30.jpg" />  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2025 AGH UST
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
